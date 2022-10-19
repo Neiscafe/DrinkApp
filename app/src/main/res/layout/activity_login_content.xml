@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.user.LoginActivity">
 
     <ImageView
         android:layout_width="159dp"
@@ -23,12 +23,12 @@
         android:layout_gravity="center"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_user"
+        android:id="@+id/text_input_layout_user_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/etUser"
+            android:id="@+id/etUserLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -42,13 +42,13 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_password"
+        android:id="@+id/text_input_layout_password_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:passwordToggleEnabled="true">
 
         <EditText
-            android:id="@+id/etPassword"
+            android:id="@+id/etPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -77,6 +77,7 @@
             android:text="Não tem cadastro? " />
 
         <TextView
+            android:id="@+id/tvCliqueAqui"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Clique aqui" />
