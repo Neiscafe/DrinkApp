@@ -1,8 +1,10 @@
 package com.example.carapp.model
 
-import androidx.room.Entity
+import com.google.gson.annotations.SerializedName
 
-@Entity
-class Drink {
-
-}
+data class Drink(
+    @SerializedName("id") val id: Int,
+    @SerializedName("strDrink") val strDrink: String,
+    @SerializedName("strInstructions") val strInstructions: String,
+    @SerializedName("strThumb") val strThumb: String
+)
