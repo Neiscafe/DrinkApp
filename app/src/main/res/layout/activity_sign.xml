@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user.SignActivity"
-    android:orientation="vertical">
+    tools:context=".ui.user.SignActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_layout_user_sign_in"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/etUserSignIn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_margin="20dp"
             android:ems="10"
             android:hint="User"
+            android:lines="1"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -28,7 +32,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_layout_name_sign_in"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_user_sign_in">
 
         <EditText
             android:id="@+id/etNameSignIn"
@@ -47,7 +55,11 @@
         android:id="@+id/text_input_layout_password_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="false"
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_name_sign_in">
 
         <EditText
             android:id="@+id/etPasswordSignIn"
@@ -63,7 +75,11 @@
         android:id="@+id/text_input_layout_confirm_password_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="false"
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_password_sign_in">
 
         <EditText
             android:id="@+id/etConfirmPasswordSignIn"
@@ -81,6 +97,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Sign In"
-        android:backgroundTint="#FFFF3D10"/>
+        android:backgroundTint="#FFFF3D10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_confirm_password_sign_in"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
