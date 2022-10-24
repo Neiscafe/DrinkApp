@@ -11,17 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp"
-            android:background="@drawable/search_view"
-            android:outlineAmbientShadowColor="@color/white"
-            android:outlineSpotShadowColor="@color/white"
-            app:queryHint="Pesquise aqui..."
-            app:iconifiedByDefault="false"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_drinks"
             android:layout_width="match_parent"
@@ -31,6 +20,18 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintBottom_toBottomOf="@+id/mainRecyclerView"
+            app:layout_constraintEnd_toEndOf="@+id/mainRecyclerView"
+            app:layout_constraintStart_toStartOf="@+id/mainRecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/mainRecyclerView"
+            tools:ignore="MissingConstraints" />
 
 
     </LinearLayout>

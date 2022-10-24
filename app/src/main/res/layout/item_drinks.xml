@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/ivCar_home"
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
@@ -22,12 +22,12 @@
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
-            android:id="@+id/tvBrandModel_home"
+            android:id="@+id/text_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivCar_home"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
             android:textSize="20sp"
             tools:text="Chevrolet Camaro" />
 
@@ -36,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="@+id/tvBrandModel_home"
-            app:layout_constraintTop_toBottomOf="@+id/tvBrandModel_home"
+            app:layout_constraintStart_toStartOf="@+id/text_home"
+            app:layout_constraintTop_toBottomOf="@+id/text_home"
             android:textSize="25sp"
             tools:text="R$ 100.000,00" />
 
