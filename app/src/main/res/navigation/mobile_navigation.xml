@@ -3,13 +3,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.carapp.ui.home.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_view_home"
+            app:destination="@id/navigation_home"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.carapp.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="searchQuery"
+            app:argType="string"
+            android:defaultValue="None" />
+        <action
+            android:id="@+id/action_view_drink"
+            app:destination="@id/viewFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewFragment"
+        android:name="com.example.carapp.ui.home.ViewFragment"
+        android:label="view_fragment"
+        tools:layout="@layout/view_fragment" >
+        <argument
+            android:name="drinkId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="drinkName"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkInstructions"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkImage"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="fragmentname"
+            app:argType="string"
+            android:defaultValue="None" />
+
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
