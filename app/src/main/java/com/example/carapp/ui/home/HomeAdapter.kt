@@ -62,7 +62,6 @@ class HomeAdapter
 
     interface ListItemListener {
         fun onItemClick(id: Int, drinkName: String, drinkInstructions: String, drinkImage: String, fragmentName: String)
-        fun onSaveClick(drink: Drink, position: Int)
     }
 }
 

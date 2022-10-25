@@ -1,40 +1,56 @@
 package com.example.carapp.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
 import com.example.carapp.model.Drink
 import com.example.carapp.retrofit.RetroFit
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class HomeViewModel : ViewModel() {
-    private val _home = MutableLiveData<List<Drink>>()
-    private val _error = MutableLiveData<Boolean>()
+class HomeViewModel (app: Application) : AndroidViewModel(app) {
 
-    val error: LiveData<Boolean>
-        get() = _error
+    val json: MutableLiveData<String>
+        get() = _json
+
+    val _json: MutableLiveData<String> = MutableLiveData()
 
 
-  /*  init {
-        getDrinkById()
-    }*/
+    private val _drinks: MutableLiveData<List<Drink>> = MutableLiveData()
+    val drinks: LiveData<List<Drink>>
+        get() = _drinks
 
-    val home: LiveData<List<Drink>>
-        get() = _home
+    private val _isLoading = MutableLiveData(false)
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
 
-    private fun onError() {
-        _error.value = true
+
+    fun getCocktails(searchQuery: String){
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                _isLoading.postValue(true)
+
+                val fetchedDrinks = RetroFit.api.getDrinksStr(searchQuery).drinks
+
+                _drinks.postValue(fetchedDrinks)
+                _isLoading.postValue(false)
+            }
+        }
     }
 
-    private fun Drinks(drinks: List<Drink>) {
-        _home.value = drinks
-    }
+    fun fetchData(): MediatorLiveData<HomeMerged> {
+        val liveDataMerger = MediatorLiveData<HomeMerged>()
 
-   /* fun getDrinkById(i: Int ) {
-        RetroFit.getDrinkById(
-            i,
-            ::Drinks,
-            ::onError
-        )
-    }*/
+        liveDataMerger.addSource(drinks) {
+            if (it != null) {
+                liveDataMerger.value = HomeMerged.CocktailData(it)
+            }
+        }
+        return liveDataMerger
+    }
 
 }
