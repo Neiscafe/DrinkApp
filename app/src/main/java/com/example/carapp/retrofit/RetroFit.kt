@@ -1,52 +1,30 @@
 package com.example.carapp.retrofit
 
-import com.example.carapp.model.Drink
-import com.example.carapp.model.DrinkResponse
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.converter.moshi.MoshiConverterFactory
 
-class RetroFit {
+private const val BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1/"
 
-    private val api: DrinkService
+object RetroFit {
 
-    init {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
-            .addConverterFactory(GsonConverterFactory.create())
+    private val retrofit by lazy {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(HttpLoggingInterceptor.Level.NONE)
+        val client: OkHttpClient = OkHttpClient.Builder()
+            .addInterceptor(interceptor)
             .build()
 
-        api = retrofit.create(DrinkService::class.java)
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(client)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
     }
 
-    fun getDrinkById(
-        i: Int, onSuccess: (drinks: List<Drink>) -> Unit,
-        onError: () -> Unit
-    ) {
-        api.getDrinkById(i = i)
-            .enqueue(object : Callback<DrinkResponse> {
-                override fun onResponse(
-                    call: Call<DrinkResponse>,
-                    response: Response<DrinkResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        val responseBody = response.body()
-
-                        if (responseBody != null) {
-                            onSuccess.invoke(responseBody.drinks)
-                        } else {
-                            onError.invoke()
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<DrinkResponse>, t: Throwable) {
-                    onError.invoke()
-                }
-            })
+    val api: DrinkService by lazy{
+        retrofit.create(DrinkService::class.java)
 
     }
-
-    }
+}
