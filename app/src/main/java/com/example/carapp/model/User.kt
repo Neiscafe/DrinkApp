@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class User(
+data class User(
     private val name: String,
     private val user: String,
     private val password: String,

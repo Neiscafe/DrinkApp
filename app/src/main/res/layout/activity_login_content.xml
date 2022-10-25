@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CarApp"
+        android:text="DrinkApp"
         android:textSize="30dp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-black"

@@ -7,10 +7,12 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carapp.R
+import com.example.carapp.database.UserDatabase
 import com.example.carapp.model.User
 
 class SignActivity : AppCompatActivity() {
-    private val viewModel = SignActivityViewModel()
+
+    private lateinit var viewModel: SignActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,8 @@ class SignActivity : AppCompatActivity() {
         val etPasswordSignIn = findViewById<EditText>(R.id.etPasswordSignIn)
         val etPasswordConfirmSignIn = findViewById<EditText>(R.id.etConfirmPasswordSignIn)
 
+        viewModel = SignActivityViewModel(UserDatabase.factory.getInstance(this).getUserDao())
+
         btSignIn.setOnClickListener {
 
             etPasswordSignInCheck(
@@ -30,10 +34,7 @@ class SignActivity : AppCompatActivity() {
                 etNameSignIn,
                 etUserSignIn
             )
-
-
         }
-
     }
 
     private fun etPasswordSignInCheck(
@@ -52,6 +53,8 @@ class SignActivity : AppCompatActivity() {
                             val name = etNameSignIn.text.toString()
                             val password = etPasswordSignIn.text.toString()
                             val user = User(userName, name, password)
+
+                            viewModel.save(user)
 
                             startActivity(Intent(this, LoginActivity::class.java))
 
