@@ -26,9 +26,12 @@
         <entry key="..\:/Users/alnda/AndroidStudioProjects/CarApp/app/src/main/res/layout/item_drinks.xml" value="0.14990942028985507" />
         <entry key="..\:/Users/alnda/AndroidStudioProjects/CarApp/app/src/main/res/layout/item_ingredients.xml" value="0.253125" />
         <entry key="..\:/Users/guilh/AndroidStudioProjects/CarApp/app/src/main/res/drawable/ic_baseline_local_car_wash_24.xml" value="0.1375" />
+        <entry key="..\:/Users/guilh/AndroidStudioProjects/CarApp/app/src/main/res/drawable/ic_baseline_local_drink_24.xml" value="0.1375" />
         <entry key="..\:/Users/guilh/AndroidStudioProjects/CarApp/app/src/main/res/layout/activity_detalhes_content.xml" value="0.209375" />
         <entry key="..\:/Users/guilh/AndroidStudioProjects/CarApp/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/Users/guilh/AndroidStudioProjects/CarApp/app/src/main/res/layout/activity_login_content.xml" value="0.25" />
+        <entry key="..\:/Users/guilh/AndroidStudioProjects/CarApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
+        <entry key="..\:/Users/guilh/AndroidStudioProjects/CarApp/app/src/main/res/layout/activity_sign.xml" value="0.20615384615384616" />
       </map>
     </option>
   </component>

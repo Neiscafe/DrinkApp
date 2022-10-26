@@ -24,7 +24,8 @@ abstract class UserDatabase : RoomDatabase() {
         fun getInstance(context: Context): UserDatabase {
 
             if (::db.isInitialized) return db
-            db = Room.databaseBuilder(context, UserDatabase::class.java, "UserDatabase.db").build()
+            db = Room.databaseBuilder(context, UserDatabase::class.java, "UserDatabase.db")
+                .build()
             return db
         }
     }

@@ -7,15 +7,20 @@ import retrofit2.http.Query
 
 interface DrinkService {
 
+    @GET("search.php")
+    suspend fun getDrinksStr(
+                @Query("s") searchQuery: String
+    ): DrinkResponse
+
     @GET("lookup.php")
-     fun getDrinkById(
+     suspend fun getDrinkById(
         @Query("i") i: Int?
-    ): Call<DrinkResponse>
+    ): DrinkResponse
 
     @GET("search.php")
-     fun getDrinks(
+     suspend fun getDrinks(
         @Query("s") s: String
-    ): Call<DrinkResponse>
+    ): DrinkResponse
 
 }
 
