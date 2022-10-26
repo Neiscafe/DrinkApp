@@ -12,7 +12,7 @@ import com.example.carapp.model.User
 
 class SignActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: SignActivityViewModel
+    private lateinit var viewModel: LoginActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class SignActivity : AppCompatActivity() {
         val etPasswordSignIn = findViewById<EditText>(R.id.etPasswordSignIn)
         val etPasswordConfirmSignIn = findViewById<EditText>(R.id.etConfirmPasswordSignIn)
 
-        viewModel = SignActivityViewModel(UserDatabase.factory.getInstance(this).getUserDao())
+        viewModel = LoginActivityViewModel(UserDatabase.factory.getInstance(this).getUserDao())
 
         btSignIn.setOnClickListener {
 
@@ -52,7 +52,7 @@ class SignActivity : AppCompatActivity() {
                             val userName = etUserSignIn.text.toString()
                             val name = etNameSignIn.text.toString()
                             val password = etPasswordSignIn.text.toString()
-                            val user = User(userName, name, password)
+                            val user = User(name = name, user = userName, password = password)
 
                             viewModel.save(user)
 

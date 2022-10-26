@@ -13,7 +13,7 @@ interface UserDao {
     @Insert(onConflict = IGNORE)
     suspend fun save(user: User)
 
-    @Query("SELECT EXISTS(SELECT 1 FROM User where id = :idUsuario)")
-    fun checkIfExists(idUsuario: Int): LiveData<Boolean>
+    @Query("SELECT EXISTS(SELECT 1 FROM User where user = :userName AND password = :password)")
+    fun checkIfExists(userName: String, password: String): LiveData<Boolean>
 
 }

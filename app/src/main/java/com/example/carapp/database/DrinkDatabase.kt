@@ -24,7 +24,7 @@ abstract class DrinkDatabase : RoomDatabase(){
         fun getInstance(context: Context): DrinkDatabase{
 
             if(::db.isInitialized) return db
-            db = databaseBuilder(context, DrinkDatabase::class.java, "CarDatabase.db").build()
+            db = databaseBuilder(context, DrinkDatabase::class.java, "DrinkDatabase.db").build()
             return db
         }
     }
