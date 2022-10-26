@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/vColor"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:background="#FFFF3D10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivDrink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/vColor"
+            app:layout_constraintEnd_toEndOf="@id/vColor"
+            app:layout_constraintStart_toStartOf="@id/vColor"
+            app:layout_constraintTop_toTopOf="@id/vColor"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvDrinkName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vColor"
+            tools:text="Margarita" />
+
+        <View
+            android:id="@+id/vDivision"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDrinkName" />
+
+        <TextView
+            android:id="@+id/tvDrinkIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Ingredients:"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/tvDrinkName"
+            app:layout_constraintTop_toBottomOf="@+id/vDivision" />
+
+        <RelativeLayout
+            android:id="@+id/rlIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDrinkIngredients">
+
+            <RelativeLayout
+                android:id="@+id/rlIngredients1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvIngredients1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    tools:text="Tequila" />
+
+                <TextView
+                    android:id="@+id/tvIngredients2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/tvIngredients1"
+                    tools:text="Triple Sec" />
+
+                <TextView
+                    android:id="@+id/tvIngredients3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/tvIngredients2"
+                    tools:text="Lime Juice" />
+
+                <TextView
+                    android:id="@+id/tvIngredients4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/tvIngredients3"
+                    tools:text="Salt" />
+
+                <TextView
+                    android:id="@+id/tvIngredients5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/tvIngredients4"
+                    tools:text="Gin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlIngredients2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:id="@+id/tvIngredients6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    tools:text="Tequila" />
+
+                <TextView
+                    android:id="@+id/tvIngredients7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/tvIngredients6"
+                    tools:text="Triple Sec" />
+
+                <TextView
+                    android:id="@+id/tvIngredients8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/tvIngredients7"
+                    tools:text="Lime Juice" />
+
+                <TextView
+                    android:id="@+id/tvIngredients9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/tvIngredients8"
+                    tools:text="Salt" />
+
+                <TextView
+                    android:id="@+id/tvIngredients10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/tvIngredients9"
+                    tools:text="Gin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/vDivision2"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlIngredients" />
+
+        <TextView
+            android:id="@+id/tvInstructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vDivision2"
+            tools:text="Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass."/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
