@@ -1,16 +1,17 @@
-package com.example.carapp.ui.favorites
+package com.example.carapp.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.carapp.databinding.FragmentFavoritesBinding
+import com.example.carapp.databinding.FragmentNotificationsBinding
 
-class FavoritesFragment : Fragment() {
+class NotificationsFragment : Fragment() {
 
-    private var _binding: FragmentFavoritesBinding? = null
+    private var _binding: FragmentNotificationsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,11 +23,15 @@ class FavoritesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val notificationsViewModel =
-            ViewModelProvider(this).get(FavoritesViewModel::class.java)
+            ViewModelProvider(this).get(NotificationsViewModel::class.java)
 
-        _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
+        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val textView: TextView = binding.textNotifications
+        notificationsViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
+        }
         return root
     }
 
