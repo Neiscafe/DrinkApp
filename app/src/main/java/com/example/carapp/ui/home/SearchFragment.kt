@@ -28,8 +28,8 @@ class SearchFragment : Fragment() {
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
-//                val action = SearchFragmentDirections.actionViewHome(p0.toString())
-//                findNavController().safeNavigate(action)
+                val action = SearchFragmentDirections.actionViewHome(p0.toString())
+                findNavController().safeNavigate(action)
                 return false
             }
 
