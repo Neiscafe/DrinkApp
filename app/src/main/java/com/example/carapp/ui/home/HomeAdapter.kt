@@ -4,9 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.TransformationUtils.centerCrop
 import com.example.carapp.R
 import com.example.carapp.databinding.ItemDrinksBinding
 import com.example.carapp.model.Drink
@@ -44,7 +47,7 @@ class HomeAdapter
 
         with(holder.binding) {
             if (drink != null) {
-                Glide.with(root).load(drink.strThumb).placeholder(circularProgressDrawable).centerCrop().into(imageView)
+                Glide.with(root).load(drink.strThumb).transform(CenterCrop()).into(imageView)
             }
             if (drink != null) {
                 textHome.text = drink.strDrink

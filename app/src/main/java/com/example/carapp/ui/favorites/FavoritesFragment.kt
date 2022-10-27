@@ -1,3 +1,4 @@
+/*
 package com.example.carapp.ui.notifications
 
 import android.os.Bundle
@@ -40,3 +41,4 @@ class NotificationsFragment : Fragment() {
         _binding = null
     }
 }
+*/
