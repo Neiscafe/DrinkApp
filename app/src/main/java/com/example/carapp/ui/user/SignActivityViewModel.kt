@@ -1,21 +1,29 @@
 package com.example.carapp.ui.user
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.carapp.database.dao.UserDao
+import com.example.carapp.model.User
+import kotlinx.coroutines.launch
 
-class SignActivityViewModel : ViewModel(){
+class SignActivityViewModel(val dao: UserDao) : ViewModel() {
 
-    private var password = ""
-    private var passwordConfirm = ""
-
-    fun getPasswordFromSignIn(text: String) {
-        password = text
+    fun save(user: User) {
+        viewModelScope.launch {
+            dao.save(user)
+        }
     }
 
-    fun getPasswordConfirmFromSignIn(text: String){
-        passwordConfirm = text
-    }
-
-    fun comparePasswords(): Boolean{
-        return password == passwordConfirm
-    }
+//    fun checkIfExists(user: User): Boolean{
+//
+//        viewModelScope.launch {
+//            val checkInDB = dao.checkIfExists()
+//
+//
+//        }
+//        if(){
+//
+//        }
+//        return false
+//    }
 }
