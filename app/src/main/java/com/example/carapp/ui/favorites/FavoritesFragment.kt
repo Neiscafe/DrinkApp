@@ -1,4 +1,4 @@
-package com.example.carapp.ui.notifications
+package com.example.carapp.ui.favorites
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.carapp.databinding.FragmentFavoritesBinding
-import com.example.carapp.ui.favorites.FavoritesViewModel
 
-class NotificationsFragment : Fragment() {
+class FavoritesFragment : Fragment() {
 
     private var _binding: FragmentFavoritesBinding? = null
 
@@ -27,6 +26,7 @@ class NotificationsFragment : Fragment() {
 
         _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
 
         return root
     }
