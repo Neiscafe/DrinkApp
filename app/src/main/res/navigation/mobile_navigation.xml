@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/viewFragment"
-        android:name="com.example.carapp.ui.details.ViewFragment"
+        android:name="com.example.carapp.ui.home.ViewFragment"
         android:label="view_fragment"
         tools:layout="@layout/view_fragment" >
         <argument
@@ -74,7 +74,16 @@
         tools:layout="@layout/fragment_dashboard" >
         <action
             android:id="@+id/action_navigation_dashboard_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment

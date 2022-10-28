@@ -15,7 +15,7 @@ import com.example.carapp.model.Drink
 )
 abstract class DrinkDatabase : RoomDatabase(){
 
-    abstract fun getFilmeDao(): DrinkDao
+    abstract fun getDrinkDao(): DrinkDao
 
     companion object factory{
 
