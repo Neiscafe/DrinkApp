@@ -15,7 +15,7 @@ import com.example.carapp.model.Drink
 )
 abstract class DrinkDatabase : RoomDatabase(){
 
-    abstract fun getFilmeDao(): DrinkDao
+    abstract fun getDrinkDao(): DrinkDao
 
     companion object factory{
 
@@ -24,7 +24,7 @@ abstract class DrinkDatabase : RoomDatabase(){
         fun getInstance(context: Context): DrinkDatabase{
 
             if(::db.isInitialized) return db
-            db = databaseBuilder(context, DrinkDatabase::class.java, "DrinkDatabase.db").build()
+            db = databaseBuilder(context, DrinkDatabase::class.java, "CarDatabase.db").build()
             return db
         }
     }
