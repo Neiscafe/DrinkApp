@@ -1,8 +1,12 @@
 package com.example.carapp.ui.user
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Fade
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -19,8 +23,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: SignActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        with(window) {
+            requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+            exitTransition = Fade()
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_content)
+
+        supportActionBar?.title = "Login"
 
         dao = UserDatabase.getInstance(this).getUserDao()
 
@@ -44,7 +54,10 @@ class LoginActivity : AppCompatActivity() {
                         if (it == true) {
                             Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT)
                                 .show()
-                            startActivity(Intent(this, MainActivity::class.java))
+                            startActivity(
+                                Intent(this, MainActivity::class.java),
+                                ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                            )
                         } else {
                             Toast.makeText(this, "Usuário não existe!", Toast.LENGTH_SHORT).show()
                             etUserLogin.setText("")

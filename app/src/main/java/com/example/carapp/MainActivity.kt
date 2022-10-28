@@ -1,6 +1,9 @@
 package com.example.carapp
 
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Fade
+import android.view.Window
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -20,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         get() = NavOptions.Builder()
             .setEnterAnim(R.anim.anim_from_left)
             .setExitAnim(R.anim.anim_to_right)
-            .setPopEnterAnim(R.anim.anim_from_left)
+            .setPopEnterAnim(R.anim.anim_to_left)
             .setPopExitAnim(R.anim.anim_to_right)
             .build()
 
@@ -32,7 +35,20 @@ class MainActivity : AppCompatActivity() {
             .setPopExitAnim(R.anim.anim_from_right)
             .build()
 
+    private val animationNotificationsFragment: NavOptions
+        get() = NavOptions.Builder()
+            .setEnterAnim(R.anim.anim_to_right)
+            .setExitAnim(R.anim.anim_to_left)
+            .setPopEnterAnim(R.anim.anim_from_left)
+            .setPopExitAnim(R.anim.anim_from_right)
+            .build()
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        with(window){
+            requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+            enterTransition = Explode()
+            allowEnterTransitionOverlap
+        }
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -58,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                     navHostFragment.navController.navigate(R.id.navigation_dashboard, null, animationDashboardFragment)
                 }
                 R.id.navigation_notifications -> {
-
+                    navHostFragment.navController.navigate(R.id.navigation_notifications, null, animationNotificationsFragment)
                 }
             }
             true

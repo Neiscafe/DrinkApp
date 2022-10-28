@@ -17,6 +17,8 @@ class SignActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign)
+        supportActionBar?.title = "Sign in"
+
 
         val btSignIn = findViewById<Button>(R.id.btSignIn)
         val etUserSignIn = findViewById<EditText>(R.id.etUserSignIn)
