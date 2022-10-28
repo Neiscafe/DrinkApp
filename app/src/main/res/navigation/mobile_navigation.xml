@@ -33,11 +33,14 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_navigation_home_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/viewFragment"
-        android:name="com.example.carapp.ui.home.ViewFragment"
+        android:name="com.example.carapp.ui.details.ViewFragment"
         android:label="view_fragment"
         tools:layout="@layout/view_fragment" >
         <argument
@@ -68,7 +71,11 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.carapp.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"

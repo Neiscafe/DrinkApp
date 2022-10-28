@@ -1,12 +1,13 @@
 package com.example.carapp.model
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Drink(
-    val id: Int,
-    val strDrink: String,
-    val strInstructions: String,
-    val strThumb: String
+    @SerializedName("id") val id: Int,
+    @SerializedName("strDrink")val strDrink: String,
+    @SerializedName("strInstructions")val strInstructions: String,
+    @SerializedName("strDrinkThumb")val strDrinkThumb: String
 ) : Parcelable
