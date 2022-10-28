@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
-            android:id="@+id/favouriteToggle"
+            android:id="@+id/favoriteToggle"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:textOff=""

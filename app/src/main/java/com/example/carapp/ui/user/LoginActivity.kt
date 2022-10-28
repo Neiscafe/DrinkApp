@@ -58,6 +58,8 @@ class LoginActivity : AppCompatActivity() {
                                 Intent(this, MainActivity::class.java),
                                 ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                             )
+                            etUserLogin.setText("")
+                            etPasswordLogin.setText("")
                         } else {
                             Toast.makeText(this, "Usuário não existe!", Toast.LENGTH_SHORT).show()
                             etUserLogin.setText("")

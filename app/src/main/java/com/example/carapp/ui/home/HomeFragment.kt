@@ -28,7 +28,6 @@ class HomeFragment : Fragment(),
 
     var drinkItems: List<Drink>? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

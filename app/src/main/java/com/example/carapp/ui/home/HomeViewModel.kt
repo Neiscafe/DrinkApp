@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel (app: Application) : AndroidViewModel(app) {
+class HomeViewModel () : ViewModel() {
 
     val json: MutableLiveData<String>
         get() = _json
@@ -52,5 +52,7 @@ class HomeViewModel (app: Application) : AndroidViewModel(app) {
         }
         return liveDataMerger
     }
+
+
 
 }

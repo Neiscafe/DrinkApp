@@ -1,9 +1,13 @@
 package com.example.carapp.ui.home
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
@@ -12,11 +16,14 @@ import com.example.carapp.databinding.ItemDrinksBinding
 import com.example.carapp.model.Drink
 
 class HomeAdapter
-    (private var drinks:List<Drink>,
-     private val listener: ListItemListener
+    (
+    private var drinks: List<Drink>,
+    private val listener: ListItemListener
 ) : RecyclerView.Adapter<HomeAdapter.DrinkViewHolder>() {
 
     private lateinit var context: Context
+    private var viewModel = HomeViewModel()
+    private var favoriteDrinks = mutableListOf<Drink>()
 
     inner class DrinkViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
@@ -33,7 +40,24 @@ class HomeAdapter
     override fun getItemCount() = drinks!!.size
 
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) {
+
         val drink = drinks?.get(holder.adapterPosition)
+
+        with(holder.binding.favoriteToggle) {
+            setOnClickListener {
+                if (this.isChecked) {
+                    Log.i(TAG, "onBindViewHolder: O botao está checado")
+                    drink?.let {
+                        favoriteDrinks.add(it)
+                        Log.i(TAG, "onBindViewHolder: $favoriteDrinks")
+//                        viewModel
+
+                    }
+                } else {
+                    Log.i(TAG, "onBindViewHolder: O botao não está checado")
+                }
+            }
+        }
 
         val circularProgressDrawable = CircularProgressDrawable(holder.itemView.context)
         circularProgressDrawable.apply {
@@ -44,16 +68,23 @@ class HomeAdapter
 
         with(holder.binding) {
             if (drink != null) {
-                Glide.with(root).load(drink.strThumb).placeholder(circularProgressDrawable).centerCrop().into(imageView)
+                Glide.with(root).load(drink.strThumb).placeholder(circularProgressDrawable)
+                    .centerCrop().into(imageView)
             }
             if (drink != null) {
                 textHome.text = drink.strDrink
 
             }
 
-            root.setOnClickListener{
+            root.setOnClickListener {
                 if (drink != null) {
-                    listener.onItemClick(drink.id, drink.strDrink, drink.strInstructions, drink.strThumb, "homeFragment")
+                    listener.onItemClick(
+                        drink.id,
+                        drink.strDrink,
+                        drink.strInstructions,
+                        drink.strThumb,
+                        "homeFragment"
+                    )
                 }
             }
 
@@ -61,7 +92,13 @@ class HomeAdapter
     }
 
     interface ListItemListener {
-        fun onItemClick(id: Int, drinkName: String, drinkInstructions: String, drinkImage: String, fragmentName: String)
+        fun onItemClick(
+            id: Int,
+            drinkName: String,
+            drinkInstructions: String,
+            drinkImage: String,
+            fragmentName: String
+        )
     }
 }
 
