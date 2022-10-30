@@ -26,14 +26,14 @@ class MainActivity : AppCompatActivity() {
             .setPopEnterAnim(R.anim.anim_to_left)
             .setPopExitAnim(R.anim.anim_to_right)
             .build()
-
-    private val animationDashboardFragment: NavOptions
-        get() = NavOptions.Builder()
-            .setEnterAnim(R.anim.anim_to_right)
-            .setExitAnim(R.anim.anim_to_left)
-            .setPopEnterAnim(R.anim.anim_from_left)
-            .setPopExitAnim(R.anim.anim_from_right)
-            .build()
+//
+//    private val animationDashboardFragment: NavOptions
+//        get() = NavOptions.Builder()
+//            .setEnterAnim(R.anim.anim_to_right)
+//            .setExitAnim(R.anim.anim_to_left)
+//            .setPopEnterAnim(R.anim.anim_from_left)
+//            .setPopExitAnim(R.anim.anim_from_right)
+//            .build()
 
     private val animationNotificationsFragment: NavOptions
         get() = NavOptions.Builder()
@@ -69,10 +69,11 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.searchFragment -> {
                     navHostFragment.navController.navigate(R.id.searchFragment, null, animationSearchFragment)
+
                 }
-                R.id.navigation_dashboard -> {
-                    navHostFragment.navController.navigate(R.id.navigation_dashboard, null, animationDashboardFragment)
-                }
+//                R.id.navigation_dashboard -> {
+//                    navHostFragment.navController.navigate(R.id.navigation_dashboard, null, animationDashboardFragment)
+//                }
                 R.id.navigation_notifications -> {
                     navHostFragment.navController.navigate(R.id.navigation_notifications, null, animationNotificationsFragment)
                 }
