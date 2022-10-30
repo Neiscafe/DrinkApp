@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Sign In"
-        android:backgroundTint="#FFFF3D10"
+        android:backgroundTint="#97FF3D00"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_input_layout_confirm_password_sign_in"/>

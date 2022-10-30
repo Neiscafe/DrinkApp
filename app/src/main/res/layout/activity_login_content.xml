@@ -11,7 +11,7 @@
         android:layout_width="159dp"
         android:layout_height="163dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_baseline_local_drink_24" />
+        android:src="@drawable/ic_baseline_no_drinks_24" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Login"
-        android:backgroundTint="#FFFF3D10"/>
+        android:backgroundTint="#97FF3D00"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
