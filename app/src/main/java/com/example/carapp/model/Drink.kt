@@ -3,8 +3,8 @@ package com.example.carapp.model
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import java.io.Serializable
 
-@Parcelize
 data class Drink(
     @SerializedName("id") val id: Int?,
     @SerializedName("strDrink")val strDrink: String?,
@@ -40,4 +40,4 @@ data class Drink(
     @SerializedName("strMeasure14")val strMeasure14: String?,
     @SerializedName("strIngredient15")val strIngredient15: String?,
     @SerializedName("strMeasure15")val strMeasure15: String?
-) : Parcelable
+) : Serializable
