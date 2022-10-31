@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.example.carapp.R
 import com.example.carapp.databinding.ItemDrinksBinding
 import com.example.carapp.model.Drink
 
 class HomeAdapter
-    (private var drinks:List<Drink>,
+    (private var drinks:List<Drink>?,
      private val listener: ListItemListener
 ) : RecyclerView.Adapter<HomeAdapter.DrinkViewHolder>() {
 
@@ -44,16 +45,48 @@ class HomeAdapter
 
         with(holder.binding) {
             if (drink != null) {
-                Glide.with(root).load(drink.strThumb).placeholder(circularProgressDrawable).centerCrop().into(imageView)
+                    Glide.with(root).load(drink.strDrinkThumb).transform(CenterCrop()).into(imageView)
+                    textHome.text = drink.strDrink
             }
-            if (drink != null) {
-                textHome.text = drink.strDrink
 
-            }
 
             root.setOnClickListener{
                 if (drink != null) {
-                    listener.onItemClick(drink.id, drink.strDrink, drink.strInstructions, drink.strThumb, "homeFragment")
+                    listener.onItemClick(drink.id,
+                        drink.strDrink,
+                        drink.strInstructions,
+                        drink.strDrinkThumb,
+                        drink.strIngredient1,
+                        drink.strMeasure1,
+                        drink.strIngredient2,
+                        drink.strMeasure2,
+                        drink.strIngredient3,
+                        drink.strMeasure3,
+                        drink.strIngredient4,
+                        drink.strMeasure4,
+                        drink.strIngredient5,
+                        drink.strMeasure5,
+                        drink.strIngredient6,
+                        drink.strMeasure6,
+                        drink.strIngredient7,
+                        drink.strMeasure7,
+                        drink.strIngredient8,
+                        drink.strMeasure8,
+                        drink.strIngredient9,
+                        drink.strMeasure9,
+                        drink.strIngredient10,
+                        drink.strMeasure10,
+                        drink.strIngredient11,
+                        drink.strMeasure11,
+                        drink.strIngredient12,
+                        drink.strMeasure12,
+                        drink.strIngredient13,
+                        drink.strMeasure13,
+                        drink.strIngredient14,
+                        drink.strMeasure14,
+                        drink.strIngredient15,
+                        drink.strMeasure15,
+                        "homeFragment")
                 }
             }
 
@@ -61,7 +94,41 @@ class HomeAdapter
     }
 
     interface ListItemListener {
-        fun onItemClick(id: Int, drinkName: String, drinkInstructions: String, drinkImage: String, fragmentName: String)
+        fun onItemClick(id: Int?,
+                        drinkName: String?,
+                        drinkInstructions: String?,
+                        drinkImage: String?,
+                        drinkIngredient1: String?,
+                        drinkMeasure1: String?,
+                        drinkIngredient2: String?,
+                        drinkMeasure2: String?,
+                        drinkIngredient3: String?,
+                        drinkMeasure3: String?,
+                        drinkIngredient4: String?,
+                        drinkMeasure4: String?,
+                        drinkIngredient5: String?,
+                        drinkMeasure5: String?,
+                        drinkIngredient6: String?,
+                        drinkMeasure6: String?,
+                        drinkIngredient7: String?,
+                        drinkMeasure7: String?,
+                        drinkIngredient8: String?,
+                        drinkMeasure8: String?,
+                        drinkIngredient9: String?,
+                        drinkMeasure9: String?,
+                        drinkIngredient10: String?,
+                        drinkMeasure10: String?,
+                        drinkIngredient11: String?,
+                        drinkMeasure11: String?,
+                        drinkIngredient12: String?,
+                        drinkMeasure12: String?,
+                        drinkIngredient13: String?,
+                        drinkMeasure13: String?,
+                        drinkIngredient14: String?,
+                        drinkMeasure14: String?,
+                        drinkIngredient15: String?,
+                        drinkMeasure15: String?,
+                        fragmentName: String)
     }
 }
 

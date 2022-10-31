@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/viewFragment"
-        android:name="com.example.carapp.ui.home.ViewFragment"
+        android:name="com.example.carapp.ui.details.ViewFragment"
         android:label="view_fragment"
         tools:layout="@layout/view_fragment" >
         <argument
@@ -57,6 +57,126 @@
             app:argType="string"
             android:defaultValue="None" />
         <argument
+            android:name="drinkIngredient1"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure1"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient2"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure2"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient3"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure3"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient4"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure4"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient5"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure5"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient6"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure6"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient7"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure7"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient8"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure8"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient9"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure9"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient10"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure10"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient11"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure11"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient12"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure12"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient13"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure13"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient14"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure14"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkIngredient15"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
+            android:name="drinkMeasure15"
+            app:argType="string"
+            android:defaultValue="None" />
+        <argument
             android:name="fragmentname"
             app:argType="string"
             android:defaultValue="None" />
@@ -72,7 +192,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.carapp.ui.favorites.NotificationsFragment"
+        android:name="com.example.carapp.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_notifications" />
 </navigation>
