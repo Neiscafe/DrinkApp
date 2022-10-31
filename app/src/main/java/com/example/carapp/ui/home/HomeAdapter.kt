@@ -1,6 +1,8 @@
 package com.example.carapp.ui.home
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,15 +11,20 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.example.carapp.R
+import com.example.carapp.database.dao.DrinkDao
 import com.example.carapp.databinding.ItemDrinksBinding
 import com.example.carapp.model.Drink
+import com.example.carapp.model.DrinkEntity
 
 class HomeAdapter
-    (private var drinks:List<Drink>?,
-     private val listener: ListItemListener
+    (private var drinks: List<DrinkEntity>?,
+     private val listener: ListItemListener,
+     private val dao: DrinkDao
 ) : RecyclerView.Adapter<HomeAdapter.DrinkViewHolder>() {
 
     private lateinit var context: Context
+    private var viewModel = HomeViewModel()
+    private var favoriteDrinks = mutableListOf<DrinkEntity>()
 
     inner class DrinkViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
@@ -36,6 +43,21 @@ class HomeAdapter
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) {
         val drink = drinks?.get(holder.adapterPosition)
 
+        with(holder.binding.favoriteToggle) {
+            setOnClickListener {
+                if (this.isChecked) {
+                    Log.i(TAG, "onBindViewHolder: O botao está checado")
+                    drink?.let { drink ->
+                        favoriteDrinks.add(drink)
+                        Log.i(TAG, "onBindViewHolder: $favoriteDrinks")
+                        viewModel.save(dao, drink)
+                    }
+                } else {
+                    Log.i(TAG, "onBindViewHolder: O botao não está checado")
+                }
+            }
+        }
+
         val circularProgressDrawable = CircularProgressDrawable(holder.itemView.context)
         circularProgressDrawable.apply {
             strokeWidth = 5f
@@ -45,8 +67,11 @@ class HomeAdapter
 
         with(holder.binding) {
             if (drink != null) {
-                    Glide.with(root).load(drink.strDrinkThumb).transform(CenterCrop()).into(imageView)
+                    Glide.with(root).load(drink.strThumb).transform(CenterCrop()).into(imageView)
                     textHome.text = drink.strDrink
+            }
+            if (drink != null) {
+                textHome.text = drink.strDrink
             }
 
 
@@ -55,7 +80,7 @@ class HomeAdapter
                     listener.onItemClick(drink.id,
                         drink.strDrink,
                         drink.strInstructions,
-                        drink.strDrinkThumb,
+                        drink.strThumb,
                         drink.strIngredient1,
                         drink.strMeasure1,
                         drink.strIngredient2,
@@ -89,7 +114,6 @@ class HomeAdapter
                         "homeFragment")
                 }
             }
-
         }
     }
 

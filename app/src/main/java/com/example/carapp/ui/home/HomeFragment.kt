@@ -52,7 +52,7 @@ class HomeFragment : Fragment(),
         }
 
         liveData.observe(viewLifecycleOwner
-        ) { it ->
+        ) {
             when (it) {
                 is HomeMerged.CocktailData -> drinkItems = it.drinkItems
             }
