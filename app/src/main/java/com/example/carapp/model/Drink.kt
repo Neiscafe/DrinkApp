@@ -1,15 +1,20 @@
 package com.example.carapp.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity
-data class Drink(
-    @PrimaryKey(autoGenerate = true)
-    @SerializedName("id") val id: Int = 0,
-    @SerializedName("strDrink") val strDrink: String = "strDrink",
-    @SerializedName("strInstructions") val strInstructions: String = "strInstructions",
-    @SerializedName("strThumb") val strThumb: String = "strThumb"
 
-)
+data class Drink(
+    @SerializedName("id") val id: Int? = 0,
+    @SerializedName("strDrink") val strDrink: String? = "",
+    @SerializedName("strInstructions") val strInstructions: String? = "",
+    @SerializedName("strThumb") val strThumb: String? = ""
+
+){
+    val entity: DrinkEntity
+        get() = DrinkEntity(
+            id ?: 0,
+            strDrink ?: "",
+            strInstructions ?: "",
+            strThumb ?: ""
+        )
+}

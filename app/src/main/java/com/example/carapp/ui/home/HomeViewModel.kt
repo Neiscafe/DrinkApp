@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.carapp.database.dao.DrinkDao
 import com.example.carapp.model.Drink
+import com.example.carapp.model.DrinkEntity
 import com.example.carapp.retrofit.RetroFit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,8 +22,8 @@ class HomeViewModel() : ViewModel() {
     val _json: MutableLiveData<String> = MutableLiveData()
 
 
-    private val _drinks: MutableLiveData<List<Drink>> = MutableLiveData()
-    val drinks: LiveData<List<Drink>>
+    private val _drinks: MutableLiveData<List<DrinkEntity>> = MutableLiveData()
+    val drinks: LiveData<List<DrinkEntity>>
         get() = _drinks
 
     private val _isLoading = MutableLiveData(false)
@@ -34,7 +35,7 @@ class HomeViewModel() : ViewModel() {
             withContext(Dispatchers.IO) {
                 _isLoading.postValue(true)
 
-                val fetchedDrinks = RetroFit.api.getDrinksStr(searchQuery).drinks
+                val fetchedDrinks = RetroFit.api.getDrinksStr(searchQuery).lista
 
                 _drinks.postValue(fetchedDrinks)
                 _isLoading.postValue(false)
@@ -53,7 +54,7 @@ class HomeViewModel() : ViewModel() {
         return liveDataMerger
     }
 
-    fun save(dao: DrinkDao, drink: Drink) {
+    fun save(dao: DrinkDao, drink: DrinkEntity) {
         viewModelScope.launch {
             dao.save(drink)
         }

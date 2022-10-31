@@ -5,11 +5,11 @@ import androidx.room.Database
 import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
 import com.example.carapp.database.dao.DrinkDao
-import com.example.carapp.model.Drink
+import com.example.carapp.model.DrinkEntity
 
 
 @Database(
-    entities = [Drink::class],
+    entities = [DrinkEntity::class],
     version = 1,
     exportSchema = false
 )

@@ -6,8 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
@@ -15,17 +13,18 @@ import com.example.carapp.R
 import com.example.carapp.database.dao.DrinkDao
 import com.example.carapp.databinding.ItemDrinksBinding
 import com.example.carapp.model.Drink
+import com.example.carapp.model.DrinkEntity
 
 class HomeAdapter
     (
-    private var drinks: List<Drink>,
+    private var drinks: List<DrinkEntity>,
     private val listener: ListItemListener,
     private val dao: DrinkDao
 ) : RecyclerView.Adapter<HomeAdapter.DrinkViewHolder>() {
 
     private lateinit var context: Context
     private var viewModel = HomeViewModel()
-    private var favoriteDrinks = mutableListOf<Drink>()
+    private var favoriteDrinks = mutableListOf<DrinkEntity>()
 
     inner class DrinkViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {

@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             .build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        with(window){
+        with(window) {
             requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
             enterTransition = Explode()
             allowEnterTransitionOverlap
@@ -68,14 +68,25 @@ class MainActivity : AppCompatActivity() {
         navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.searchFragment -> {
-                    navHostFragment.navController.navigate(R.id.searchFragment, null, animationSearchFragment)
-
+                    if (R.id.searchFragment != navHostFragment.navController.currentDestination?.id) {
+                        navHostFragment.navController.navigate(
+                            R.id.searchFragment,
+                            null,
+                            animationSearchFragment
+                        )
+                    }
                 }
 //                R.id.navigation_dashboard -> {
 //                    navHostFragment.navController.navigate(R.id.navigation_dashboard, null, animationDashboardFragment)
 //                }
                 R.id.navigation_notifications -> {
-                    navHostFragment.navController.navigate(R.id.navigation_notifications, null, animationNotificationsFragment)
+                    if (R.id.navigation_notifications != navHostFragment.navController.currentDestination?.id) {
+                        navHostFragment.navController.navigate(
+                            R.id.navigation_notifications,
+                            null,
+                            animationNotificationsFragment
+                        )
+                    }
                 }
             }
             true

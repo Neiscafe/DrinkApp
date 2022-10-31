@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,9 +13,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carapp.database.DrinkDatabase
-import com.example.carapp.database.dao.DrinkDao
 import com.example.carapp.databinding.FragmentHomeBinding
-import com.example.carapp.model.Drink
+import com.example.carapp.model.DrinkEntity
 
 class HomeFragment : Fragment(),
     HomeAdapter.ListItemListener {
@@ -28,7 +26,7 @@ class HomeFragment : Fragment(),
 
     private val args: HomeFragmentArgs by navArgs()
 
-    var drinkItems: List<Drink>? = null
+    var drinkItems: List<DrinkEntity>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
