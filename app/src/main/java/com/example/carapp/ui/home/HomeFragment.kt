@@ -13,6 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.carapp.database.DrinkDatabase
+import com.example.carapp.database.dao.DrinkDao
 import com.example.carapp.databinding.FragmentHomeBinding
 import com.example.carapp.model.Drink
 
@@ -60,7 +62,7 @@ class HomeFragment : Fragment(),
             if (drinkItems?.isNotEmpty() == true) {
 
                 adapter =
-                    HomeAdapter(drinkItems!!, this@HomeFragment)
+                    HomeAdapter(drinkItems!!, this@HomeFragment, DrinkDatabase.getInstance(requireContext()).getDrinkDao())
                 binding.homeRecycler.adapter = adapter
                 binding.homeRecycler.layoutManager = LinearLayoutManager(activity)
 

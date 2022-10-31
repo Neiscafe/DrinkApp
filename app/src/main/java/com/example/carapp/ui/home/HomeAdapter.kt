@@ -12,13 +12,15 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.carapp.R
+import com.example.carapp.database.dao.DrinkDao
 import com.example.carapp.databinding.ItemDrinksBinding
 import com.example.carapp.model.Drink
 
 class HomeAdapter
     (
     private var drinks: List<Drink>,
-    private val listener: ListItemListener
+    private val listener: ListItemListener,
+    private val dao: DrinkDao
 ) : RecyclerView.Adapter<HomeAdapter.DrinkViewHolder>() {
 
     private lateinit var context: Context
@@ -47,11 +49,10 @@ class HomeAdapter
             setOnClickListener {
                 if (this.isChecked) {
                     Log.i(TAG, "onBindViewHolder: O botao está checado")
-                    drink?.let {
-                        favoriteDrinks.add(it)
+                    drink?.let { drink ->
+                        favoriteDrinks.add(drink)
                         Log.i(TAG, "onBindViewHolder: $favoriteDrinks")
-//                        viewModel
-
+                        viewModel.save(dao, drink)
                     }
                 } else {
                     Log.i(TAG, "onBindViewHolder: O botao não está checado")

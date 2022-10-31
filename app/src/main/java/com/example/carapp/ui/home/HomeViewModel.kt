@@ -2,6 +2,7 @@ package com.example.carapp.ui.home
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.carapp.database.dao.DrinkDao
 import com.example.carapp.model.Drink
 import com.example.carapp.retrofit.RetroFit
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel () : ViewModel() {
+class HomeViewModel() : ViewModel() {
 
     val json: MutableLiveData<String>
         get() = _json
@@ -28,8 +29,7 @@ class HomeViewModel () : ViewModel() {
     val isLoading: LiveData<Boolean>
         get() = _isLoading
 
-
-    fun getCocktails(searchQuery: String){
+    fun getCocktails(searchQuery: String) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 _isLoading.postValue(true)
@@ -53,6 +53,16 @@ class HomeViewModel () : ViewModel() {
         return liveDataMerger
     }
 
+    fun save(dao: DrinkDao, drink: Drink) {
+        viewModelScope.launch {
+            dao.save(drink)
+        }
+    }
+
+//    fun searchAll(dao: DrinkDao): List<Drink> {
+//        dao.searchAll()
+//
+//    }
 
 
 }

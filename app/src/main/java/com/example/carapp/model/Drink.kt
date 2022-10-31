@@ -7,9 +7,9 @@ import com.google.gson.annotations.SerializedName
 @Entity
 data class Drink(
     @PrimaryKey(autoGenerate = true)
-    @SerializedName("id") val id: Int,
-    @SerializedName("strDrink") val strDrink: String,
-    @SerializedName("strInstructions") val strInstructions: String,
-    @SerializedName("strThumb") val strThumb: String
+    @SerializedName("id") val id: Int = 0,
+    @SerializedName("strDrink") val strDrink: String = "strDrink",
+    @SerializedName("strInstructions") val strInstructions: String = "strInstructions",
+    @SerializedName("strThumb") val strThumb: String = "strThumb"
 
 )
