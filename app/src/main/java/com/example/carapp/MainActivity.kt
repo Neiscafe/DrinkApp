@@ -76,9 +76,6 @@ class MainActivity : AppCompatActivity() {
                         )
                     }
                 }
-//                R.id.navigation_dashboard -> {
-//                    navHostFragment.navController.navigate(R.id.navigation_dashboard, null, animationDashboardFragment)
-//                }
                 R.id.navigation_notifications -> {
                     if (R.id.navigation_notifications != navHostFragment.navController.currentDestination?.id) {
                         navHostFragment.navController.navigate(
