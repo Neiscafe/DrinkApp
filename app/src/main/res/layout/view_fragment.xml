@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Tequila" />
@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvIngredient1"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Triple Sec" />
@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvIngredient2"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Lime Juice" />
@@ -110,10 +110,10 @@
                 android:id="@+id/tvIngredient4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/tvIngredient3"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvIngredient1"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient1"
                 tools:text="Salt" />
 
             <TextView
@@ -121,30 +121,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvIngredient4"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient2"
                 tools:text="Gin" />
 
             <TextView
                 android:id="@+id/tvIngredient6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvIngredient1"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient1"
+                android:layout_margin="5dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/tvIngredient5"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient3"
                 tools:text="Tequila" />
 
             <TextView
                 android:id="@+id/tvIngredient7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/tvIngredient6"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient2"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvIngredient4"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient4"
                 tools:text="Triple Sec" />
 
             <TextView
@@ -152,9 +151,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvIngredient7"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient3"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient5"
                 tools:text="Lime Juice" />
 
             <TextView
@@ -162,7 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvIngredient8"
                 app:layout_constraintTop_toBottomOf="@+id/tvIngredient4"
                 tools:text="Salt" />
@@ -171,22 +170,20 @@
                 android:id="@+id/tvIngredient10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/tvIngredient9"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient5"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvIngredient7"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient7"
                 tools:text="Gin" />
 
             <TextView
                 android:id="@+id/tvIngredient11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvIngredient6"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient6"
+                android:layout_margin="5dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/tvIngredient10"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient8"
                 tools:text="Tequila" />
 
             <TextView
@@ -194,19 +191,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvIngredient11"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient7"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient9"
                 tools:text="Tequila" />
 
             <TextView
                 android:id="@+id/tvIngredient13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/tvIngredient12"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient8"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvIngredient10"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient10"
                 tools:text="Salt" />
 
             <TextView
@@ -214,9 +211,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvIngredient13"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient9"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient11"
                 tools:text="Gin" />
 
             <TextView
@@ -224,9 +221,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvIngredient14"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngredient10"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngredient12"
                 tools:text="Lime Juice" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
