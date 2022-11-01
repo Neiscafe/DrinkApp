@@ -14,13 +14,13 @@
         android:id="@+id/searchView"
         android:layout_width="359dp"
         android:layout_height="80dp"
-        android:background="@color/gray"
+        android:background="@color/white"
         android:iconifiedByDefault="false"
-        android:queryBackground="@color/gray"
         android:queryHint="Pesquise por uma bebida..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.278" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
