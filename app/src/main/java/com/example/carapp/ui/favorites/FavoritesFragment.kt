@@ -50,7 +50,7 @@ class FavoritesFragment : Fragment() {
         val viewModel = FavoritesViewModel(dao)
         viewModel.favoritesListLiveData.observe(requireActivity()) { updatedList ->
             if (updatedList.isNotEmpty()) {
-//                favoritesList = updatedList
+                favoritesList = emptyList()
                 adapter.populateAdapter(updatedList)
             } else {
             }
