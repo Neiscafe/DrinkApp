@@ -16,23 +16,22 @@ import com.example.carapp.model.DrinkEntity
 
 class FavoritesAdapter(val context: Context) : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>() {
 
-    private var drinkList = arrayListOf<DrinkEntity>()
+    val drinkList = arrayListOf<DrinkEntity>()
     private lateinit var mListener: onItemClickListener
-
-    fun setOnItemClickListener(listener: onItemClickListener) {
-        mListener = listener
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_drinks, parent, false)
-        return ViewHolder(view, mListener, context)
+        return ViewHolder(
+            view
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val drink = drinkList[position]
         holder.vinculate(drink, drinkList)
+
     }
 
     override fun getItemCount(): Int {
@@ -41,44 +40,32 @@ class FavoritesAdapter(val context: Context) : RecyclerView.Adapter<FavoritesAda
 
     interface onItemClickListener {
         fun onItemClick(posicao: Int)
+        fun onFavoriteClick(posicao: Int, isChecked: Boolean)
     }
 
-    class ViewHolder(
+    inner class ViewHolder(
         itemView: View,
-        listener: onItemClickListener,
-        context: Context
     ) : RecyclerView.ViewHolder(itemView) {
-
-        val dao = DrinkDatabase.getInstance(context).getDrinkDao()
-        val viewModel = FavoritesViewModel(dao)
 
         fun vinculate(drink: DrinkEntity, drinkList: ArrayList<DrinkEntity>) {
             val icon = itemView.findViewById<ImageView>(R.id.imageView)
             val name = itemView.findViewById<TextView>(R.id.text_home)
-            val favoriteIcon = itemView.findViewById<ToggleButton>(R.id.favoriteToggle)
             Glide.with(itemView).load(drink.strThumb).transform(CenterCrop()).into(icon)
             name.text = drink.strDrink
+
+            val favoriteIcon = itemView.findViewById<ToggleButton>(R.id.favoriteToggle)
             favoriteIcon.isChecked = true
 
             favoriteIcon.setOnClickListener {
-                if (!favoriteIcon.isChecked) {
-                    drinkList.remove(drink)
-                    viewModel.remove(drink)
 
-                } else {
-                    drinkList.add((drink))
-                    viewModel.save(drink)
-                }
+                mListener.onFavoriteClick(bindingAdapterPosition, favoriteIcon.isChecked)
+
+            }
+
+            itemView.setOnClickListener{
+                mListener.onItemClick(bindingAdapterPosition)
             }
         }
-
-        init {
-            itemView.setOnClickListener {
-                listener.onItemClick(bindingAdapterPosition)
-            }
-        }
-
-
     }
 
     fun populateAdapter(newList: List<DrinkEntity>) {
@@ -87,5 +74,9 @@ class FavoritesAdapter(val context: Context) : RecyclerView.Adapter<FavoritesAda
         drinkList.clear()
         drinkList.addAll(newList)
         notifyItemRangeInserted(oldPositions, newPositions)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener){
+        mListener = listener
     }
 }

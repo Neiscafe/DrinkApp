@@ -198,5 +198,8 @@
         <action
             android:id="@+id/action_navigation_notifications_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_viewFragment"
+            app:destination="@id/viewFragment" />
     </fragment>
 </navigation>

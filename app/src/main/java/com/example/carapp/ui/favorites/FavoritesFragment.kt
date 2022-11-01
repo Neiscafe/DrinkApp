@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import android.widget.Toast
+import android.widget.ToggleButton
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +26,7 @@ class FavoritesFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
     private var favoritesList = listOf<DrinkEntity>()
+    private lateinit var toggleButton: ToggleButton
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +40,8 @@ class FavoritesFragment : Fragment() {
         val root: View = binding.root
 
         recyclerView = binding.rvFavorites
+        val tvNoFavorites = binding.tvNoFavorites
+        tvNoFavorites.isVisible = false
 
         val adapter = FavoritesAdapter(requireContext())
 
@@ -48,20 +54,25 @@ class FavoritesFragment : Fragment() {
                 favoritesList = updatedList
                 adapter.populateAdapter(updatedList)
             } else {
-                Toast.makeText(
-                    requireContext(),
-                    "Você ainda não adicionou nada",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
         }
 
-
+        toggleButton = requireActivity().findViewById(R.id.favoriteToggle)
 
         adapter.setOnItemClickListener(object : FavoritesAdapter.onItemClickListener {
-            override fun onItemClick(position: Int) {
+            override fun onItemClick(posicao: Int) {
+//                FavoritesFragmentDirections.actionNavigationNotificationsToViewFragment()
+            }
+
+            override fun onFavoriteClick(posicao: Int, isChecked: Boolean) {
+                if(isChecked){
+                    viewModel.save(adapter.drinkList[posicao])
+                }else{
+                    viewModel.remove(adapter.drinkList[posicao])
+                }
             }
         })
+
 
 
         return root

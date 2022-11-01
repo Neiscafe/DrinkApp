@@ -8,6 +8,7 @@ import com.example.carapp.database.dao.DrinkDao
 import com.example.carapp.model.Drink
 import com.example.carapp.model.DrinkEntity
 import kotlinx.coroutines.launch
+import kotlin.concurrent.thread
 
 class FavoritesViewModel(val dao: DrinkDao) : ViewModel() {
 
@@ -17,13 +18,13 @@ class FavoritesViewModel(val dao: DrinkDao) : ViewModel() {
         return dao.retrieveAll()
     }
 
-    fun remove(drink: DrinkEntity){
-        viewModelScope.launch {
+    fun remove(drink: DrinkEntity) {
+        viewModelScope.launch{
             return@launch dao.remove(drink)
         }
     }
 
-    fun save(drink: DrinkEntity){
+    fun save(drink: DrinkEntity) {
         viewModelScope.launch {
             return@launch dao.save(drink)
         }
