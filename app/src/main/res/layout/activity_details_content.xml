@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <View
+            android:padding="20dp"
             android:id="@+id/vColor"
             android:layout_width="0dp"
             android:layout_height="250dp"
@@ -20,8 +21,8 @@
 
         <ImageView
             android:id="@+id/ivDrink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="114dp"
+            android:layout_height="97dp"
             app:layout_constraintBottom_toBottomOf="@id/vColor"
             app:layout_constraintEnd_toEndOf="@id/vColor"
             app:layout_constraintStart_toStartOf="@id/vColor"
@@ -29,6 +30,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
+            android:padding="20dp"
             android:id="@+id/tvDrinkName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,6 +90,7 @@
 
         <TextView
             android:id="@+id/tvInstructions"
+            android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

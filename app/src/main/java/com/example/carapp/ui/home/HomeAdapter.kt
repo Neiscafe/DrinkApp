@@ -6,8 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
@@ -68,7 +66,7 @@ class HomeAdapter
 
         with(holder.binding) {
             if (drink != null) {
-                Glide.with(root).load(drink.strThumb).placeholder(circularProgressDrawable)
+                Glide.with(root).load(drink.strDrinkThumb).placeholder(circularProgressDrawable)
                     .centerCrop().into(imageView)
             }
             if (drink != null) {
@@ -82,7 +80,7 @@ class HomeAdapter
                         drink.id,
                         drink.strDrink,
                         drink.strInstructions,
-                        drink.strThumb,
+                        drink.strDrinkThumb,
                         "homeFragment"
                     )
                 }

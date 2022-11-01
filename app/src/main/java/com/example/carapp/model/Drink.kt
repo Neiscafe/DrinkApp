@@ -1,13 +1,14 @@
 package com.example.carapp.model
 
-import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
+@Entity
 data class Drink(
+    @PrimaryKey(autoGenerate = true)
     @SerializedName("id") val id: Int,
     @SerializedName("strDrink")val strDrink: String,
     @SerializedName("strInstructions")val strInstructions: String,
     @SerializedName("strDrinkThumb")val strDrinkThumb: String
-) : Parcelable
+)

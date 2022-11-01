@@ -1,85 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.user.LoginActivity">
 
-    <ImageView
-        android:layout_width="159dp"
-        android:layout_height="163dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_baseline_local_drink_24" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DrinkApp"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-black"
-        android:layout_gravity="center"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_user_login"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.user.LoginActivity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/etUserLogin"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="20dp"
-            android:ems="10"
-            android:hint="User"
-            android:inputType="text" />
+            android:layout_height="match_parent"
+            >
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/image_close"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        app:tint="@android:color/black" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_baseline_no_drinks_24" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="center|start"
+                    android:fontFamily="@font/poppins_bold"
+                    android:paddingTop="3dp"
+                    android:text="DrinkApp"
+                    android:textColor="@android:color/black"
+                    android:textSize="32sp" />
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_password_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center|start"
+                    android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/etPasswordLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:hint="Password"
-            android:inputType="textPassword" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
 
-    </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/etUserLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:ems="10"
+                        android:hint="User"
+                        android:inputType="text" />
 
-    <Button
-        android:id="@+id/btLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Login"
-        android:backgroundTint="#FFFF3D10"/>
+                </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center|start"
+                    android:text=""
+                    android:textSize="12sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Não tem cadastro? " />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvCliqueAqui"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clique aqui" />
-    </LinearLayout>
-</LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_layout_password_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true">
+
+                        <EditText
+                            android:id="@+id/etPasswordLogin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Password"
+                            android:inputType="textPassword" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#97FF3D00"
+                    android:text="Login"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Não tem cadastro? "
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/tvCliqueAqui"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clique aqui"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

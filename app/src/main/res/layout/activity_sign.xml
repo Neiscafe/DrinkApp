@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.user.SignActivity">
 
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_layout_user_sign_in"
         android:layout_width="match_parent"
