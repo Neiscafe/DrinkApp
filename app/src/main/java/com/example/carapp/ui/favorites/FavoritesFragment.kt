@@ -62,9 +62,9 @@ class FavoritesFragment : Fragment() {
             }
 
             override fun onFavoriteClick(posicao: Int, isChecked: Boolean) {
-                if(isChecked){
+                if (isChecked) {
                     viewModel.save(adapter.drinkList[posicao])
-                }else{
+                } else {
                     viewModel.remove(adapter.drinkList[posicao])
                 }
             }
