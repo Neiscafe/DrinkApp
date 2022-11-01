@@ -1,7 +1,6 @@
 package com.example.carapp.ui.details
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -16,6 +15,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.carapp.R
 import com.example.carapp.databinding.ViewFragmentBinding
+import com.example.carapp.model.Drink
 import com.example.carapp.ui.home.HomeViewModel
 
 @Suppress("DEPRECATION", "UnusedEquals")
@@ -29,6 +29,7 @@ class ViewFragment : Fragment() {
     private lateinit var myJson: String
 
     private val args: ViewFragmentArgs by navArgs()
+    private val drink: Drink? by lazy { args.drink }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,114 +46,105 @@ class ViewFragment : Fragment() {
         setHasOptionsMenu(true)
 
         binding = ViewFragmentBinding.inflate(inflater, container, false);
-        binding.tvDrinkName.setText("${args.drinkName}")
-        binding.tvInstructions.setText("${args.drinkInstructions}")
+        binding.tvDrinkName.setText("${drink?.strDrink}")
+        binding.tvInstructions.setText("${drink?.strInstructions}")
 
-        if ({args.drinkIngredient1} == null){
+        if (drink?.strIngredient1 == null){
             binding.tvIngredient1.visibility = View.GONE
 
         } else{
-            binding.tvIngredient1.setText("${args.drinkMeasure1} ${args.drinkIngredient1}")
+            binding.tvIngredient1.setText("${drink?.strMeasure1} ${drink?.strIngredient1}")
         }
 
-        if ({args.drinkIngredient2} == null){
+        if (drink?.strIngredient2 == null){
             binding.tvIngredient2.visibility = View.GONE
 
         } else{
-            binding.tvIngredient2.setText("${args.drinkMeasure2} ${args.drinkIngredient2}")
+            binding.tvIngredient2.setText("${drink?.strMeasure2} ${drink?.strIngredient2}")
         }
 
-        if ({args.drinkIngredient3} == null){
+        if (drink?.strIngredient3 == null){
             binding.tvIngredient3.visibility = View.GONE
         } else{
-            binding.tvIngredient3.setText("${args.drinkMeasure3} ${args.drinkIngredient3}")
+            binding.tvIngredient3.setText("${drink?.strMeasure3} ${drink?.strIngredient3}")
 
         }
 
-        if ({args.drinkIngredient4} == null){
+        if (drink?.strIngredient4 == null){
             binding.tvIngredient4.visibility = View.GONE
         } else{
-            binding.tvIngredient4.setText("${args.drinkMeasure4} ${args.drinkIngredient4}")
+            binding.tvIngredient4.setText("${drink?.strMeasure4} ${drink?.strIngredient4}")
 
         }
 
-        if ({args.drinkIngredient5} == null){
+        if (drink?.strIngredient5 == null){
             binding.tvIngredient5.visibility = View.GONE
         } else{
-            binding.tvIngredient5.setText("${args.drinkMeasure5} ${args.drinkIngredient5}")
+            binding.tvIngredient5.setText("${drink?.strMeasure5} ${drink?.strIngredient5}")
         }
 
-        if ({args.drinkIngredient6} == null){
+        if (drink?.strIngredient6 == null){
             binding.tvIngredient6.visibility = View.GONE
         } else{
-            binding.tvIngredient6.setText("${args.drinkMeasure6} ${args.drinkIngredient6}")
+            binding.tvIngredient6.setText("${drink?.strMeasure6} ${drink?.strIngredient6}")
         }
 
-        if ({args.drinkIngredient7} == null){
+        if (drink?.strIngredient7 == null){
             binding.tvIngredient7.visibility = View.GONE
         } else{
-            binding.tvIngredient7.setText("${args.drinkMeasure7} ${args.drinkIngredient7}")
+            binding.tvIngredient7.setText("${drink?.strMeasure7} ${drink?.strIngredient7}")
         }
 
-        if ({args.drinkIngredient8} == null){
+        if (drink?.strIngredient8 == null){
             binding.tvIngredient8.visibility = View.GONE
         } else{
-            binding.tvIngredient8.setText("${args.drinkMeasure8} ${args.drinkIngredient8}")
+            binding.tvIngredient8.setText("${drink?.strMeasure8} ${drink?.strIngredient8}")
         }
 
-        if ({args.drinkIngredient9} != null){
-            binding.tvIngredient9.setText("${args.drinkMeasure9} ${args.drinkIngredient9}")
+        if (drink?.strIngredient9 != null){
+            binding.tvIngredient9.setText("${drink?.strMeasure9} ${drink?.strIngredient9}")
         } else{
             binding.tvIngredient9.visibility = View.GONE
         }
 
-        if ({args.drinkIngredient10} != null){
-            binding.tvIngredient10.setText("${args.drinkMeasure10} ${args.drinkIngredient10}")
+        if (drink?.strIngredient10 != null){
+            binding.tvIngredient10.setText("${drink?.strMeasure10} ${drink?.strIngredient10}")
         } else{
             binding.tvIngredient10.visibility = View.GONE
         }
 
-        if ({args.drinkIngredient11} != null){
-            binding.tvIngredient11.setText("${args.drinkMeasure11} ${args.drinkIngredient11}")
+        if (drink?.strIngredient11 != null){
+            binding.tvIngredient11.setText("${drink?.strMeasure11} ${drink?.strIngredient11}")
         } else{
             binding.tvIngredient11.visibility = View.GONE
         }
 
-        if ({args.drinkIngredient12} != null){
-            binding.tvIngredient12.setText("${args.drinkMeasure12} ${args.drinkIngredient12}")
+        if (drink?.strIngredient12 != null){
+            binding.tvIngredient12.setText("${drink?.strMeasure12} ${drink?.strIngredient12}")
         } else{
             binding.tvIngredient12.visibility = View.GONE
         }
 
-        if ({args.drinkIngredient13} != null){
-            binding.tvIngredient13.setText("${args.drinkMeasure13} ${args.drinkIngredient13}")
+        if (drink?.strIngredient13 != null){
+            binding.tvIngredient13.setText("${drink?.strMeasure13} ${drink?.strIngredient13}")
         } else{
             binding.tvIngredient13.visibility = View.GONE
         }
 
-        if ({args.drinkIngredient14} != null){
-            binding.tvIngredient14.setText("${args.drinkMeasure14} ${args.drinkIngredient14}")
+        if (drink?.strIngredient14 != null){
+            binding.tvIngredient14.setText("${drink?.strMeasure14} ${drink?.strIngredient14}")
         } else{
             binding.tvIngredient14.visibility = View.GONE
         }
 
-        if ({args.drinkIngredient15} != null){
-            binding.tvIngredient15.setText("${args.drinkMeasure15} ${args.drinkIngredient15}")
+        if (drink?.strIngredient15 != null){
+            binding.tvIngredient15.setText("${drink?.strMeasure15} ${drink?.strIngredient15}")
         } else{
             binding.tvIngredient15.visibility = View.GONE
         }
 
-        Glide.with(binding.root).load(args.drinkImage).centerCrop()
+        Glide.with(binding.root).load(drink?.strDrinkThumb).centerCrop()
             .into(binding.ivDrink)
-
-        requireActivity().onBackPressedDispatcher.addCallback(
-            viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    saveAndReturn()
-                }
-            }
-        )
 
         viewViewModel = ViewModelProvider(this).get(ViewViewModel::class.java)
 
@@ -163,17 +155,11 @@ class ViewFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> saveAndReturn()
+            android.R.id.home -> findNavController().popBackStack()
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun saveAndReturn(): Boolean {
-       args.fragmentname.toLowerCase() == "homefragment"
-            findNavController().navigateUp()
-            return true
-
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
