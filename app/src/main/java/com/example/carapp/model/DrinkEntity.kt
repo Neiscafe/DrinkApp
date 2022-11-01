@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 @Entity
 data class DrinkEntity(
@@ -42,4 +43,4 @@ data class DrinkEntity(
     @ColumnInfo(name = "strMeasure14") val strMeasure14: String?,
     @ColumnInfo(name = "strIngredient15") val strIngredient15: String?,
     @ColumnInfo(name = "strMeasure15") val strMeasure15: String?
-)
+): Serializable

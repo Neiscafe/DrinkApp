@@ -15,6 +15,9 @@ interface DrinkDao {
     @Query("SELECT * FROM DrinkEntity")
     fun retrieveAll(): LiveData<List<DrinkEntity>>
 
+    @Query("SELECT * FROM DrinkEntity")
+    fun retrieve(): List<DrinkEntity>
+
     @Delete
     suspend fun remove(drink: DrinkEntity)
 

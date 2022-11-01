@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.example.carapp.R
 import com.example.carapp.databinding.ViewFragmentBinding
 import com.example.carapp.model.Drink
+import com.example.carapp.model.DrinkEntity
 import com.example.carapp.ui.home.HomeViewModel
 
 @Suppress("DEPRECATION", "UnusedEquals")
@@ -29,7 +30,7 @@ class ViewFragment : Fragment() {
     private lateinit var myJson: String
 
     private val args: ViewFragmentArgs by navArgs()
-    private val drink: Drink? by lazy { args.drink }
+    private val drink: DrinkEntity? by lazy { args.drink }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -143,7 +144,7 @@ class ViewFragment : Fragment() {
             binding.tvIngredient15.visibility = View.GONE
         }
 
-        Glide.with(binding.root).load(drink?.strDrinkThumb).centerCrop()
+        Glide.with(binding.root).load(drink?.strThumb).centerCrop()
             .into(binding.ivDrink)
 
         viewViewModel = ViewModelProvider(this).get(ViewViewModel::class.java)

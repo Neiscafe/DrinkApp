@@ -42,7 +42,7 @@
         tools:layout="@layout/view_fragment" >
         <argument
             android:name="drink"
-            app:argType="com.example.carapp.model.Drink"
+            app:argType="com.example.carapp.model.DrinkEntity"
             app:nullable="true"
             android:defaultValue="@null" />
     </fragment>

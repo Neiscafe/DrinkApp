@@ -4,18 +4,24 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ToggleButton
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.example.carapp.R
+import com.example.carapp.database.DrinkDatabase
 import com.example.carapp.databinding.ItemDrinksBinding
 import com.example.carapp.model.Drink
+import com.example.carapp.model.DrinkEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeAdapter
     (
-    private var drinks: List<Drink>?,
-    private val listener: ListItemListener
+    private var drinks: List<DrinkEntity>?,
+    private val listener: ListItemListener,
 ) : RecyclerView.Adapter<HomeAdapter.DrinkViewHolder>() {
 
     private lateinit var context: Context
@@ -44,9 +50,33 @@ class HomeAdapter
             start()
         }
 
+        val toggle = holder.itemView.findViewById<ToggleButton>(R.id.favouriteToggle)
+
+        toggle.isChecked = false
+        CoroutineScope(Dispatchers.IO).launch {
+            val lista = DrinkDatabase.getInstance(context).getDrinkDao().retrieve()
+            if (lista.isNotEmpty()) {
+                for (favorites in lista) {
+                    if (favorites.strDrink == drinks?.get(holder.absoluteAdapterPosition)?.strDrink) {
+                        CoroutineScope(Dispatchers.Main).launch {
+                            toggle.isChecked = true
+                        }
+                        break
+                    }
+                }
+            }
+        }
+
+
+        toggle.setOnCheckedChangeListener { compoundButton, b ->
+            if (drink != null) {
+                listener.onFavoriteClick(drink, b)
+            }
+        }
+
         with(holder.binding) {
             if (drink != null) {
-                Glide.with(root).load(drink.strDrinkThumb).transform(CenterCrop()).into(imageView)
+                Glide.with(root).load(drink.strThumb).transform(CenterCrop()).into(imageView)
                 textHome.text = drink.strDrink
             }
 
@@ -60,7 +90,12 @@ class HomeAdapter
 
     interface ListItemListener {
         fun onItemClick(
-            drink: Drink
+            drink: DrinkEntity
+        )
+
+        fun onFavoriteClick(
+            drink: DrinkEntity,
+            isChecked: Boolean
         )
     }
 }

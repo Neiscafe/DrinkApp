@@ -13,12 +13,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.carapp.database.DrinkDatabase
 import com.example.carapp.databinding.FragmentHomeBinding
 import com.example.carapp.model.Drink
+import com.example.carapp.model.DrinkEntity
+import com.example.carapp.ui.favorites.FavoritesViewModel
 
 class HomeFragment : Fragment(),
     HomeAdapter.ListItemListener {
     private lateinit var viewModel: HomeViewModel
+    private lateinit var viewModel2: FavoritesViewModel
     private lateinit var searchQuery: String
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: HomeAdapter
@@ -26,8 +30,10 @@ class HomeFragment : Fragment(),
 
     private val args: HomeFragmentArgs by navArgs()
 
-    var drinkItems: List<Drink>? = null
-
+    var drinkItems: List<DrinkEntity>? = null
+    private val dao by lazy {
+        DrinkDatabase.getInstance(requireContext()).getDrinkDao()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +50,7 @@ class HomeFragment : Fragment(),
         val liveData = viewModel.fetchData()
         viewModel.getCocktails(searchQuery)
 
+        viewModel2 = FavoritesViewModel(dao)
 
         with(binding.homeRecycler) {
             setHasFixedSize(true)
@@ -59,6 +66,7 @@ class HomeFragment : Fragment(),
                 is HomeMerged.CocktailData -> drinkItems = it.drinkItems
             }
 
+
             if (drinkItems?.isNotEmpty() == true) {
 
                 adapter =
@@ -70,6 +78,7 @@ class HomeFragment : Fragment(),
                 binding.noDrinksFound.visibility = View.VISIBLE
             }
 
+
             if (it == null) {
                 spinner.visibility = View.VISIBLE;
             } else {
@@ -80,10 +89,18 @@ class HomeFragment : Fragment(),
     }
 
     override fun onItemClick(
-        drink: Drink
+        drink: DrinkEntity
     ) {
         val action = HomeFragmentDirections.actionViewDrink(drink)
         findNavController().navigate(action)
 
+    }
+
+    override fun onFavoriteClick(drink: DrinkEntity, isChecked: Boolean) {
+        if (isChecked) {
+            viewModel2.save(drink)
+        } else {
+            viewModel2.remove(drink)
+        }
     }
 }

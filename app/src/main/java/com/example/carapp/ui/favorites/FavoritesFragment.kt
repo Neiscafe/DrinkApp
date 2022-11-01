@@ -25,8 +25,7 @@ class FavoritesFragment : Fragment() {
     private var _binding: FragmentFavoritesBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private var favoritesList = listOf<DrinkEntity>()
-    private lateinit var toggleButton: ToggleButton
+    private var favoritesList = emptyList<DrinkEntity>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,17 +50,15 @@ class FavoritesFragment : Fragment() {
         val viewModel = FavoritesViewModel(dao)
         viewModel.favoritesListLiveData.observe(requireActivity()) { updatedList ->
             if (updatedList.isNotEmpty()) {
-                favoritesList = updatedList
+//                favoritesList = updatedList
                 adapter.populateAdapter(updatedList)
             } else {
             }
         }
 
-        toggleButton = requireActivity().findViewById(R.id.favoriteToggle)
-
         adapter.setOnItemClickListener(object : FavoritesAdapter.onItemClickListener {
             override fun onItemClick(posicao: Int) {
-//                FavoritesFragmentDirections.actionNavigationNotificationsToViewFragment()
+                FavoritesFragmentDirections.actionNavigationNotificationsToViewFragment(adapter.drinkList[posicao])
             }
 
             override fun onFavoriteClick(posicao: Int, isChecked: Boolean) {

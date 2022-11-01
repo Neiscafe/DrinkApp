@@ -30,8 +30,7 @@ class FavoritesAdapter(val context: Context) : RecyclerView.Adapter<FavoritesAda
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val drink = drinkList[position]
-        holder.vinculate(drink, drinkList)
-
+        holder.vinculate(drink)
     }
 
     override fun getItemCount(): Int {
@@ -47,13 +46,15 @@ class FavoritesAdapter(val context: Context) : RecyclerView.Adapter<FavoritesAda
         itemView: View,
     ) : RecyclerView.ViewHolder(itemView) {
 
-        fun vinculate(drink: DrinkEntity, drinkList: ArrayList<DrinkEntity>) {
+        fun vinculate(drink: DrinkEntity) {
             val icon = itemView.findViewById<ImageView>(R.id.imageView)
             val name = itemView.findViewById<TextView>(R.id.text_home)
             Glide.with(itemView).load(drink.strThumb).transform(CenterCrop()).into(icon)
             name.text = drink.strDrink
 
-            val favoriteIcon = itemView.findViewById<ToggleButton>(R.id.favoriteToggle)
+
+
+            val favoriteIcon = itemView.findViewById<ToggleButton>(R.id.favouriteToggle)
             favoriteIcon.isChecked = true
 
             favoriteIcon.setOnClickListener {
@@ -69,11 +70,9 @@ class FavoritesAdapter(val context: Context) : RecyclerView.Adapter<FavoritesAda
     }
 
     fun populateAdapter(newList: List<DrinkEntity>) {
-        val oldPositions = drinkList.size
-        val newPositions = newList.size
         drinkList.clear()
         drinkList.addAll(newList)
-        notifyItemRangeInserted(oldPositions, newPositions)
+        notifyDataSetChanged()
     }
 
     fun setOnItemClickListener(listener: onItemClickListener){

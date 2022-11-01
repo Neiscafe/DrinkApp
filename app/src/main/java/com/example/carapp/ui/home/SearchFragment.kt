@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import com.example.carapp.database.DrinkDatabase
 import com.example.carapp.databinding.FragmentSearchBinding
 
 @SuppressLint("StaticFieldLeak")
@@ -18,6 +19,8 @@ private lateinit var binding: FragmentSearchBinding
 
 @Suppress("DEPRECATION")
 class SearchFragment : Fragment() {
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
