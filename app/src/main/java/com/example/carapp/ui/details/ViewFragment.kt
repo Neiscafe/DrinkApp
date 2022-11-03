@@ -11,13 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.carapp.R
 import com.example.carapp.databinding.ViewFragmentBinding
 import com.example.carapp.model.Drink
 import com.example.carapp.model.DrinkEntity
 import com.example.carapp.ui.home.HomeViewModel
-import androidx.navigation.fragment.navArgs as navArgs
 
 @Suppress("DEPRECATION", "UnusedEquals")
 class ViewFragment : Fragment() {
