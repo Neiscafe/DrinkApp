@@ -4,21 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CompoundButton
-import android.widget.Toast
-import android.widget.ToggleButton
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.carapp.R
 import com.example.carapp.database.DrinkDatabase
 import com.example.carapp.databinding.FragmentFavoritesBinding
 import com.example.carapp.model.DrinkEntity
-import com.example.carapp.ui.home.HomeAdapter
-import com.example.carapp.ui.home.HomeFragmentDirections
-import com.example.carapp.ui.home.ViewFragment
 
 class FavoritesFragment : Fragment() {
 

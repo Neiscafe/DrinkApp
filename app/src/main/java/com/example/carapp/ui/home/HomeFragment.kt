@@ -29,8 +29,8 @@ class HomeFragment : Fragment(),
     private lateinit var spinner: ProgressBar
 
     private val args: HomeFragmentArgs by navArgs()
-
     var drinkItems: List<DrinkEntity>? = null
+
     private val dao by lazy {
         DrinkDatabase.getInstance(requireContext()).getDrinkDao()
     }
